@@ -1,0 +1,17 @@
+# Python 
+__pycache__/
+*.pyc
+
+# virtual enviroment
+venv/
+
+# flask env variables
+.env
+.flaskenv
+
+# databases
+*.db
+*.sqlite3
+
+# flask instance folder
+instance/
