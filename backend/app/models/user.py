@@ -1,0 +1,23 @@
+from sqlalchemy import func
+from ..extensions import db, bcrypt
+
+
+class User(db.Model):
+    __tablename__ = 'users'
+
+    id = db.Column(db.Integer, primary_key = True)
+    username = db.Column(db.String(100), nullable = False)
+    email = db.Column(db.String(120), unique = True, nullable = False)
+    password = db.Column(db.String(250), nullable = False)
+    role = db.Column(db.String(20), default='user')
+    created_at = db.Column(db.DateTime, server_default = func.now())
+
+    # password hashing using bcrypt
+    def set_password(self, raw_password):
+        self.password = bcrypt.generate_password_hash(raw_password).decode('utf-8')
+
+    def check_password(self, raw_password):
+        return bcrypt.check_password_hash(self.password, raw_password)
+    
+    def __repr__(self):
+        return f'User {self.email}'
