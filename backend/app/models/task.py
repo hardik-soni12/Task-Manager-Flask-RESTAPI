@@ -11,7 +11,7 @@ class Task(db.Model):
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
 
-    created_at = db.Column(db.TimeDate, server_default = func.now())
+    created_at = db.Column(db.DateTime, server_default = func.now())
 
     def __repr__(self):
         return f'Task {self.title}'
