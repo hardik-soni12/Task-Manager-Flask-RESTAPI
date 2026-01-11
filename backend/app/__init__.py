@@ -26,7 +26,9 @@ def create_app(config_name):
 
     # blueprint registration
     from .routes.v1.auth_route import auth_bp
+    from .routes.v1.task_route import task_bp
 
     app.register_blueprint(auth_bp)
+    app.register_blueprint(task_bp)
 
     return app
