@@ -14,7 +14,7 @@ class Config:
     PROPAGATE_EXCEPTIONS = True
 
     # Database URL from .env
-    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI')
 
     # JWT settings
     JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY', 'a-secret-jwt-key')
