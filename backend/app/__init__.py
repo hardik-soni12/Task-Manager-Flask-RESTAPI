@@ -1,6 +1,6 @@
 from flask import Flask
 from .extensions import db, bcrypt, jwt, migrate, ma
-from config import Config_dict
+from backend.config import Config_dict
 from .utils.error_handlers import register_error_handlers
 import os
 
@@ -12,9 +12,7 @@ def create_app(config_name):
     # ensures instance folder exists
     try:
         os.makedirs(app.instance_path)
-        print(f'create instance folder at {app.instance_path}')
     except OSError:
-        print('already created ')
         pass
 
     # Initialize extentions
