@@ -10,6 +10,9 @@ def create_app(config_name):
     app = Flask(__name__)
     app.config.from_object(Config_dict[config_name])
 
+    env_origins = os.getenv("ALLOWED_ORIGINS", "allowed_origins")
+    allowed_origins = [origin.strip() for origin in env_origins.split(",")]
+
     CORS(
         app,
         resources={r"/*": {"origins": "http://localhost:3000"}},

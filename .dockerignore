@@ -1,0 +1,8 @@
+node_modules
+Frontend/node_modules
+Frontend/.next/cache
+venv
+__pycache__
+.env
+.git
+.flaskenv
