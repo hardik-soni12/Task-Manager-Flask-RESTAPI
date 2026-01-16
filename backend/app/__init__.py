@@ -15,7 +15,7 @@ def create_app(config_name):
 
     CORS(
         app,
-        resources={r"/*": {"origins": "http://localhost:3000"}},
+        resources={r"/*": {"origins": "https://mytask-manager-v1.vercel.app"}},
         supports_credentials=True,
         expose_headers=["Content-Type", "Authorization"]
     )
